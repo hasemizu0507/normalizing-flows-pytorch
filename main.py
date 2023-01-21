@@ -16,6 +16,10 @@ from flows.dataset import FlowDataLoader
 from flows.modules import Logit, Identity
 from common.logging import Logging
 
+# ---------【追記】loss_list---------
+import matplotlib.pyplot as plt
+# ---------【追記】loss_list---------
+
 networks = {
     'planar': PlanarFlow,
     'realnvp': RealNVP,
@@ -322,12 +326,18 @@ def main(cfg):
 
     # training
     step = start_step
+    # ---------【追記】loss_list---------
+    loss_list = []
+    # ---------【追記】loss_list---------
     for data in dataset:
         # training
         model.train()
         start_time = time.perf_counter()
         y = data
         z, loss = model.train_on_batch(y)
+        # ---------【追記】loss_list---------
+        loss_list.append(loss.item())
+        # ---------【追記】loss_list---------
         elapsed_time = time.perf_counter() - start_time
 
         # update for the next step
@@ -349,6 +359,13 @@ def main(cfg):
             # save ckpt
             ckpt_file = 'latest.pth'
             model.save_ckpt(step, ckpt_file)
+            
+    # ---------【追記】loss_list---------
+    plt.plot(loss_list)
+    plt.xlabel('Num Iter')
+    plt.ylabel('loss')
+    plt.tight_layout
+    # ---------【追記】loss_list---------
 
 
 if __name__ == '__main__':
