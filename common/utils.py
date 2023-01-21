@@ -41,7 +41,7 @@ def scatter_plot(xs, ys, zs=None, colors=None, title=None):
 #     plt.close()
     plt.show()
 
-    return image
+#     return image
 
 
 def image_plot(image,
@@ -72,7 +72,7 @@ def image_plot(image,
 #     plt.close()
     plt.show()
 
-    return image
+#     return image
 
 
 def save_image(filename, image):
