@@ -38,7 +38,8 @@ def scatter_plot(xs, ys, zs=None, colors=None, title=None):
 
     canvas.draw()
     image = np.asarray(canvas.buffer_rgba(), dtype='uint8')[..., :3]
-    plt.close()
+#     plt.close()
+    plt.show()
 
     return image
 
@@ -68,7 +69,8 @@ def image_plot(image,
 
     canvas.draw()
     image = np.asarray(canvas.buffer_rgba(), dtype='uint8')[..., :3]
-    plt.close()
+#     plt.close()
+    plt.show()
 
     return image
 

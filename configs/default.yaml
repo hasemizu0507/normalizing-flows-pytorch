@@ -2,12 +2,20 @@ hydra:
   run:
     dir: logs/${network.name}_${run.distrib}_${now:%Y-%m-%d_%H-%M-%S}
 
+# network:
+#   name: realnvp
+#   layers: 32
+  
 network:
-  name: realnvp
+  name: planar
   layers: 32
 
+# train:
+#   steps: 100000
+#   samples: 1024
+
 train:
-  steps: 100000
+  steps: 50000
   samples: 1024
 
 optimizer:
@@ -19,13 +27,24 @@ optimizer:
   decay_steps: 10000
   decay_ratio: 0.5
 
+# run:
+#   gpu: 0
+#   debug: False
+#   distrib: circles
+#   ckpt_path: null
+#   output: outputs
+#   display: 1
+  
 run:
   gpu: 0
   debug: False
-  distrib: circles
+  distrib: moons
   ckpt_path: null
   output: outputs
   display: 1
 
+# defaults:
+#   - network: realnvp
+  
 defaults:
-  - network: realnvp
+  - network: planar
