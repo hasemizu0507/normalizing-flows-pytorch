@@ -7,7 +7,7 @@ network:
   layers: 32
 
 train:
-  steps: 50000
+  steps: 100000
   samples: 1024
 
 optimizer:
@@ -22,7 +22,7 @@ optimizer:
 run:
   gpu: 0
   debug: False
-  distrib: moons
+  distrib: circles
   ckpt_path: null
   output: outputs
   display: 1
