@@ -4,7 +4,7 @@ hydra:
   
 network:
   name: planar
-  layers: 64
+  layers: 16
 
 train:
   steps: 100000
