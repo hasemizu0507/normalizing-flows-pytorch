@@ -23,7 +23,7 @@ optimizer:
 run:
   gpu: 0
   debug: False
-  distrib: circles
+  distrib: moons
   ckpt_path: null
   output: outputs
   display: 1
